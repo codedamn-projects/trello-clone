@@ -28,7 +28,7 @@ There is no limit you can go beyond the mentioned criteria and create additional
 
 At `/` route.
 
-
+![landing page](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Home.png)
 
 ### Login
 
@@ -36,9 +36,20 @@ The login functionality should be implemented in the `/login` route.
 
 ![login image](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Login%20%5BDesktop%7D.png)
 
-### Board
+When the user clicks on the Log In button the a POST request should be sent to `api/login` to validate the user credentials. If the user exists and has entered the correct data, you should redirect to `/boards` page. 
+
+### Signup
+
+At `/signup` route.
+
+
+
+### Boards
+At `/boards` route
 
 ![/boards](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Board%20%5BDesktop%5D.png)
+### Board
+
 ## API Routes 
 
 ### `/api/auth/login`
