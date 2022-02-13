@@ -36,37 +36,69 @@ The login functionality should be implemented in the `/login` route.
 
 ![login image](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Login%20%5BDesktop%7D.png)
 
-When the user clicks on the Log In button the a POST request should be sent to `api/login` to validate the user credentials. If the user exists and has entered the correct data, you should redirect to `/boards` page. 
+When the user clicks on the Log In button the a POST request should be sent to `/api/login` to validate the user credentials. If the user exists and has entered the correct data, you should redirect to `/boards` page. 
 
 ### Signup
 
 At `/signup` route.
 
-![Sign UP page]()
+![Sign UP page](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Sign%20Up%20%20%5BDesktop%5D.png)
 
+On clicking on Continue send a POST request to `/api/signup` and create a document in MongoDB in the users Collection. 
 ### Boards
 At `/boards` route
 
-![/boards](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Board%20%5BDesktop%5D.png)
+![/boards](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Boards%20%5BDesktop%5D.png)
+
+At `/boards` all the boards created by the user should be shown.
+
+#### Create new Board
+![Create new board](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Create%20Board%20Modal.png)
+
+On Clicking on create new board a modal with an input field for the name of the board should exist and on clicking on **create** a POST request should be made to `/api/createboard` 
+
 ### Board
 
+![/board/id](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Board%20%5BDesktop%5D.png)
+
+For creating the Drag and Drop functionality of Cards you can use the [react-dnd](https://www.npmjs.com/package/react-dnd) or [react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd). Getting yourself familiar with anyone of the package is crucial to build the drag and drop functionality between cards. 
+
+### Add Card
+
+![new card for list](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/New%20Card%20%5BDesktop%5D.png)
 ## API Routes 
 
-### `/api/auth/login`
+### `/api/login`
 
 To verify the user credentials on Sign In, taking the parameters as the roll number and the password 
 
-### `/api/auth/register` 
+### `/api/signup` 
 
 To register a new student and add the document to the database
 
-### `/api/messages` 
+### `/api/getboards` 
+params: email
 
- To get the previous messages in the conversation. Make sure to pass in the Conversation ID to retrieve the messages 
+This request should return the name of the boards that the user has created 
 
- ### `/api/conversations`
+### `/api/board/id` 
 
- To list out all the open conversations on the chat application. 
+params: email
+
+This request should return the JSON data of the lists and the cards in the board having the id mentioned.
+
+### `/api/createcard`
+
+params: email, boardId
+
+The request should add the card details to the MongoDB 
+
+### `/api/movecard`
+
+params: email, boardId, cardId, previousListId, currentListId
+
+This request should move the card location in the 
+
 
 
 ### MongoDB User document
@@ -78,41 +110,17 @@ To register a new student and add the document to the database
 }
 ```
 
-### MongoDB Message document
-```
-{
-    "conversationId" : string,
-    "sender" : string, 
-    "message" : string
-}
-```
-Take a look at the mongoose schema to get the perfect Idea. 
-
-### MongoDb Conversation document
-```
-{
-    "conversationId" : string,
-    "members" : array
-}
-```
 
 ### Ports 
 The Codedamn Playgrounds exposes only `1337` and `1338` ports on the internet. So you'll be using `localhost` for connecting to the mongodb instance as they are hosted on the same docker container. You can specify it as `localhost:27017` or simple write `localhost`. 
 
 You have to use the `1338` port for the web socket connection. 
 
-You are free to use any third party libraries for the web sockets or any other part of the application. 
-
-To understand about web sockets, you can refer to this [blog](https://codedamn.com/news/backend/what-are-web-sockets-how-is-it-different-from-http)
+For Connecting to the MongoDb you have to use  `localhost:27017` as the local instance of the mongoDB is present.
 ## Recommended Technologies 
 
 1. Mongoose for mongodb object modelling and effective type system 
 1. Tailwind CSS for User Interface
-
-
-
-
-
 
 ## Where to find everything
 
