@@ -42,7 +42,7 @@ When the user clicks on the Log In button the a POST request should be sent to `
 
 At `/signup` route.
 
-
+![Sign UP page]()
 
 ### Boards
 At `/boards` route
