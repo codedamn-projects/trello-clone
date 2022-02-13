@@ -1,34 +1,44 @@
-# Codedamn Projects - Chat Application
+# Codedamn Projects - Trello Clone
 
-![header image](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/landing%20page.png)
+![header image](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Moving%20Cards.gif)
 ## Hello developer!
 
-Welcome to Chat Application Project on Codedamn. This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
+Welcome to Trello Clone Project on Codedamn. This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
 
 ## Project Overview
 
-You have to implement chat application where users can 
+You have to build a functional Kanban board system where the user can Drag and Drop Cards between lists. 
 
+## Instructions
+
+Your challenge is to build out this project and get it looking as close to the design as possible.
+
+You can use **any tools or technologies** you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
+Your project should:
+
+-   Be responsive for desktop and mobile phones
+-   Have minimum functionalities and effects working
+
+Want some support on the challenge? [Join our discord community](https://cdm.sh/discord) and ask questions in the **#general** channel.
+
+There is no limit you can go beyond the mentioned criteria and create additional functionalities
 
 ### Landing Page
 
-The landing page is similar to that of the register page, so we don't need another landing page for this project
+At `/` route.
 
-### Register
 
-THe registration functionality should be implemented at  `/register` route.
 
-This should contain the students details, refer to the student document for the details to be collected. 
-
-![register page](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/landing%20page.png)
-
-### Log In
+### Login
 
 The login functionality should be implemented in the `/login` route.
 
-![login image](https://raw.githubusercontent.com/codedamn-projects/chat-app/master/designs/login%20page.png)
+![login image](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Login%20%5BDesktop%7D.png)
 
+### Board
 
+![/boards](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Board%20%5BDesktop%5D.png)
 ## API Routes 
 
 ### `/api/auth/login`
@@ -90,21 +100,7 @@ To understand about web sockets, you can refer to this [blog](https://codedamn.c
 
 
 
-## Instructions
 
-Your challenge is to build out this project and get it looking as close to the design as possible.
-
-You can use **any tools or technologies** you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your project should:
-
--   Be responsive for desktop and mobile phones
--   Have minimum functionalities and effects working
-
-
-Want some support on the challenge? [Join our discord community](https://cdm.sh/discord) and ask questions in the **#general** channel.
-
-There is no limit you can go beyond the mentioned criteria and create additional functionalities
 
 
 ## Where to find everything
