@@ -5,7 +5,7 @@
 
 Welcome to Trello Clone Project on Codedamn. This is one of the many projects available on [codedamn](https://codedamn.com/projects) to reinforce your learning by building. If you want to become a full stack developer and learn by practicing, feel free to attempt this challenge. Feel free to check out the codedamn [Full Stack Web Development Learning Path](https://codedamn.com/learning-paths/fullstack) to learn more about how to become an awesome full stack developer.
 
-## Project Overview
+## **Project** Overview
 
 You have to build a functional Kanban board system where the user can Drag and Drop Cards between lists. 
 
@@ -36,7 +36,7 @@ The login functionality should be implemented in the `/login` route.
 
 ![login image](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Login%20%5BDesktop%7D.png)
 
-When the user clicks on the Log In button the a POST request should be sent to `/api/login` to validate the user credentials. If the user exists and has entered the correct data, you should redirect to `/boards` page. 
+When the user clicks on the Log In button the a POST request should be sent to `/api/login` to validate the user credentials. If the user exists and has entered the correct username and password combination, you should redirect to `/boards` page. 
 
 ### Signup
 
@@ -44,25 +44,32 @@ At `/signup` route.
 
 ![Sign UP page](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Sign%20Up%20%20%5BDesktop%5D.png)
 
-On clicking on Continue send a POST request to `/api/signup` and create a document in MongoDB in the users Collection. 
+On clicking on Continue send a POST request to `/api/signup` and create a document in MongoDB in the users Collection. On Successful creation of the document redirect the user to `/boards` 
 ### Boards
 At `/boards` route
 
 ![/boards](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Boards%20%5BDesktop%5D.png)
 
-At `/boards` all the boards created by the user should be shown.
+At `/boards` all the boards created by the user should be shown along with the option to create a new board. 
 
 #### Create new Board
 ![Create new board](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Create%20Board%20Modal.png)
 
-On Clicking on create new board a modal with an input field for the name of the board should exist and on clicking on **create** a POST request should be made to `/api/createboard` 
+On Clicking on create new board a modal with an input field for the name of the board should exist and on clicking on **create** a POST request should be made to `/api/createboard`. Make sure to generate an ID for the board and store in the document as well.
 
 ### Board
 
 ![/board/id](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/Board%20%5BDesktop%5D.png)
 
+This is the core part of the project. The user should be able to create new cards and lists and should be able to conveniently drag and drop cards between 
+
 For creating the Drag and Drop functionality of Cards you can use the [react-dnd](https://www.npmjs.com/package/react-dnd) or [react-beautiful-dnd](https://www.npmjs.com/package/react-beautiful-dnd). Getting yourself familiar with anyone of the package is crucial to build the drag and drop functionality between cards. 
 
+### Create New List 
+
+![new list](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/New%20List%20%5BDesktop%5D.png)
+
+On clicking on the new `Add List` button, you have make a POST  request to `/api/newlist` with userId, boardId and the List name. 
 ### Add Card
 
 ![new card for list](https://raw.githubusercontent.com/codedamn-projects/trello-clone/master/designs/New%20Card%20%5BDesktop%5D.png)
@@ -77,36 +84,66 @@ To verify the user credentials on Sign In, taking the parameters as the roll num
 To register a new student and add the document to the database
 
 ### `/api/getboards` 
-params: email
+params: `userId`
 
 This request should return the name of the boards that the user has created 
 
-### `/api/board/id` 
+### `/api/createboard`
 
-params: email
+params: `userId, boardName`
+
+This request should create a new document in the Boards collection with `userId, boardName, boardId` fields
+### `/api/board` 
+
+params: `userId, boardId`
 
 This request should return the JSON data of the lists and the cards in the board having the id mentioned.
 
+### `/api/createList` 
+
+params: `userId`
 ### `/api/createcard`
 
-params: email, boardId
+params: `userId, boardId`
 
 The request should add the card details to the MongoDB 
 
 ### `/api/movecard`
 
-params: email, boardId, cardId, previousListId, currentListId
+params: `userId, boardId, cardId, previousListId, currentListId`
 
 This request should move the card location in the 
 
 
 
-### MongoDB User document
+### MongoDB User document (Users collection)
 ```
 { 
     "username" : string,
     "email" : string,
     "password" : string
+    "userId" : string
+}
+```
+
+### MongoDB Board Document (Boards Collection)
+```
+{
+    "boardId" : string,
+    "UserId" : string,
+    "boardName" : string, 
+    "lists" : [
+                {
+                    "listId" : string,
+                    "listName" : string,
+                    "cards" : [
+                                {   "cardId" : string, 
+                                    "cardTitle" : string, 
+                                    "cardDescription": string
+                                }
+                              ]
+                }
+              ]
 }
 ```
 
