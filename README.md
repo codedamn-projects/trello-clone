@@ -154,8 +154,13 @@ The Codedamn Playgrounds exposes only `1337` and `1338` ports on the internet. S
 You have to use the `1338` port for the web socket connection. 
 
 For Connecting to the MongoDb you have to use  `localhost:27017` as the local instance of the mongoDB is present.
-## Recommended Technologies 
 
+## Extras
+1. You can create the functionality to edit an delete boards,lists and cards
+1. Functionality to move lists among them 
+1. Adding of more fields to the cards like images, links, priority, tags etc. 
+1. Creating a Profile Page 
+## Recommended Technologies 
 1. Mongoose for mongodb object modelling and effective type system 
 1. Tailwind CSS for User Interface
 
